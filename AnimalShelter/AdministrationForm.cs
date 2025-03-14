@@ -37,6 +37,14 @@ namespace AnimalShelter
         private void createAnimalButton_Click(object sender, EventArgs e)
         {
             // TODO: See method description
+            if (animalTypeComboBox.SelectedIndex == 1)
+            {
+                animal = new Dog(123456, new SimpleDate(11, 11, 2003), "Doggy", new SimpleDate(11, 11, 2023));
+            }
+            else if (animalTypeComboBox.SelectedIndex == 0)
+            {
+                animal = new Cat(123456, new SimpleDate(11, 11, 2003), "Kitty", "test");
+            }
         }
 
         /// <summary>
@@ -47,6 +55,7 @@ namespace AnimalShelter
         private void showInfoButton_Click(object sender, EventArgs e)
         {
             // TODO: See method description
+            listBox1.Items.Add(animal.ToString());
         }
     }
 }
