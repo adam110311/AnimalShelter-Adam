@@ -45,6 +45,7 @@ namespace AnimalShelter
             {
                 animal = new Cat(123456, new SimpleDate(11, 11, 2003), "Kitty", "test");
             }
+            listBox1.Items.Add(animal);
         }
 
         /// <summary>
@@ -55,7 +56,38 @@ namespace AnimalShelter
         private void showInfoButton_Click(object sender, EventArgs e)
         {
             // TODO: See method description
-            listBox1.Items.Add(animal.ToString());
+            this.animal = (Animal)listBox1.SelectedItem;
+            ChipTxb.Text = animal.ChipRegistrationNumber.ToString();
+            NameTxb.Text = animal.Name;
+            DateTxb.Text = animal.DateOfBirth.ToString();
+            ResTxb.Text = animal.IsReserved.ToString();
+
+            if (animal is Dog dog)
+            {
+                VarTxb.Text = dog.LastWalkDate.ToString();
+            }
+            else if (animal is Cat cat)
+            {
+                VarTxb.Text = cat.BadHabits;
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //this.animal = (Animal)listBox1.SelectedItem;
+            //ChipTxb.Text = animal.ChipRegistrationNumber.ToString();
+            //NameTxb.Text = animal.Name;
+            //DateTxb.Text = animal.DateOfBirth.ToString();
+            //ResTxb.Text = animal.IsReserved.ToString();
+
+            //if (animal is Dog dog)
+            //{
+            //    VarTxb.Text = dog.LastWalkDate.ToString();
+            //}
+            //else if (animal is Cat cat)
+            //{
+            //    VarTxb.Text = cat.BadHabits;
+            //}
         }
     }
 }
